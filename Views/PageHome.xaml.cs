@@ -132,7 +132,9 @@ namespace PM2E17063.Views
 
         private async void OnListaClicked(object sender, EventArgs e)
         {
-            
+
+            await Navigation.PushAsync(new PageList());
+
         }
 
         private void OnSalirClicked(object sender, EventArgs e)

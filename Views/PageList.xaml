@@ -2,11 +2,25 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PM2E17063.Views.PageList"
-             Title="PageList">
-    <VerticalStackLayout>
+             Title="Lista de Sitios">
+
+    <VerticalStackLayout Padding="10">
         <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
+            Text="Lista de Sitios"
+            FontSize="18"
+            VerticalOptions="Center"
             HorizontalOptions="Center" />
+
+        <CollectionView x:Name="sitiosCollectionView">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Vertical" Margin="15,25,15,10">
+                        <Label Text="{Binding descripcion}" FontSize="15" />
+                        <Label Text="{Binding latitud}" FontSize="10" TextColor="Gray" />
+                        <Label Text="{Binding longitud}" FontSize="10" TextColor="Gray" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </VerticalStackLayout>
 </ContentPage>
