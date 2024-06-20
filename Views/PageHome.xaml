@@ -5,16 +5,57 @@
              Title="PageHome">
     <VerticalStackLayout>
 
-        <Image Source="{Binding Persona. Foto}" HeightRequest="200" WidthRequest="200" Margin="20,0,20,0" BackgroundColor="Azure" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="FotoImage"/>
+        <Image Source="{Binding Persona.Foto}" 
+               HeightRequest="200" 
+               WidthRequest="200" 
+               Margin="20,0,20,0" 
+               BackgroundColor="Azure" 
+               HorizontalOptions="CenterAndExpand" 
+               VerticalOptions="CenterAndExpand" 
+               x:Name="FotoImage"/>
 
-        <Label Text="Latitud" Margin="30,50,30,0" VerticalOptions="Start" HorizontalOptions="Start"/>
-        <Entry MaxLength="25" Margin="30,0,30,0" IsReadOnly="True" x:Name="Latitud" />
+        <Label Text="Latitud" 
+               Margin="30,50,30,0" 
+               VerticalOptions="Start" 
+               HorizontalOptions="Start"/>
+        <Entry MaxLength="25" 
+               Margin="30,0,30,0" 
+               IsReadOnly="True" 
+               x:Name="Latitud"/>
 
-        <Label Text="Longitud" Margin="30,20,30,0" VerticalOptions="Start" HorizontalOptions="Start"/>
-        <Entry MaxLength="25" Margin="30,0,30,0" IsReadOnly="True" x:Name="Longitud" />
+        <Label Text="Longitud" 
+               Margin="30,20,30,0" 
+               VerticalOptions="Start" 
+               HorizontalOptions="Start"/>
+        <Entry MaxLength="25" 
+               Margin="30,0,30,0" 
+               IsReadOnly="True" 
+               x:Name="Longitud"/>
 
-        <Label Text="Descripción o Notas" Margin="30,20,30,0" VerticalOptions="Start" HorizontalOptions="Start"/>
-        <Editor MaxLength="100" Margin="30,0,30,0" x:Name="Descripcion" />
+        <Label Text="Descripción o Notas" 
+               Margin="30,20,30,0" 
+               VerticalOptions="Start" 
+               HorizontalOptions="Start"/>
+        <Editor MaxLength="100" 
+                Margin="30,0,30,0" 
+                x:Name="Descripcion"/>
+
+        <HorizontalStackLayout 
+            Spacing="10" 
+            Margin="0,20"
+            HorizontalOptions="Center" 
+            VerticalOptions="End">
+            <Button Text="Agregar" 
+                    WidthRequest="100" 
+                    Clicked="OnAgregarClicked"/>
+            <Button Text="Lista de Sitios" 
+                    WidthRequest="100" 
+                    Clicked="OnListaClicked"/>
+            <Button Text="Salir" 
+                    WidthRequest="100" 
+                    Clicked="OnSalirClicked"/>
+        </HorizontalStackLayout>
+
 
     </VerticalStackLayout>
 </ContentPage>
