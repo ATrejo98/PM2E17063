@@ -2,60 +2,58 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PM2E17063.Views.PageHome"
-             Title="PageHome">
-    <VerticalStackLayout>
+             Title="Examen PM2 Primer Parcial"
+             Background="DarkGreen">
+    
+    <StackLayout Background="#f2f2f2">
+        <ScrollView>
+            <StackLayout Background="#f2f2f2">
 
-        <Image Source="{Binding Persona.Foto}" 
-               HeightRequest="200" 
-               WidthRequest="200" 
-               Margin="20,0,20,0" 
-               BackgroundColor="Azure" 
-               HorizontalOptions="CenterAndExpand" 
-               VerticalOptions="CenterAndExpand" 
-               x:Name="FotoImage"/>
+                <Label HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="18">Foto del Sitio</Label>
+        
+                <Image x:Name="img"  BackgroundColor="Azure" WidthRequest="150" HeightRequest="150" Margin="20,0,20,10" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="btnfoto_Clicked" NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
 
-        <Label Text="Latitud" 
-               Margin="30,50,30,0" 
-               VerticalOptions="Start" 
-               HorizontalOptions="Start"/>
-        <Entry MaxLength="25" 
-               Margin="30,0,30,0" 
-               IsReadOnly="True" 
-               x:Name="Latitud"/>
+                <Label Margin="30,0,0,0" FontSize="18" TextColor="Black">Latitud</Label>
+                <Frame CornerRadius="4" Margin="30, 0, 30, 10" Padding="3">
+                    <Entry x:Name="txtlatitud" Keyboard="Numeric" Placeholder="Latitud" TextColor="Black" IsReadOnly="True"/>
+                </Frame>
 
-        <Label Text="Longitud" 
-               Margin="30,20,30,0" 
-               VerticalOptions="Start" 
-               HorizontalOptions="Start"/>
-        <Entry MaxLength="25" 
-               Margin="30,0,30,0" 
-               IsReadOnly="True" 
-               x:Name="Longitud"/>
+                <Label Margin="30,0,0,0" FontSize="18" TextColor="Black">Longitud</Label>
+                <Frame CornerRadius="4" Margin="30, 0, 30, 10" Padding="3" >
+                    <Entry x:Name="txtlongitud" Keyboard="Numeric" Placeholder="Longitud" TextColor="Black" IsReadOnly="True"/>
+                </Frame>
 
-        <Label Text="Descripción o Notas" 
-               Margin="30,20,30,0" 
-               VerticalOptions="Start" 
-               HorizontalOptions="Start"/>
-        <Editor MaxLength="100" 
-                Margin="30,0,30,0" 
-                x:Name="Descripcion"/>
+                <Label Margin="30,0,0,0" FontSize="18" TextColor="Black">Descripción o Notas</Label>
+                <Frame CornerRadius="4" Margin="30, 0, 30, 10" Padding="3">
+                    <Editor x:Name="txtdescripcion"  Keyboard="Text" Placeholder="Descripción" HeightRequest="120" TextColor="Black"/>
+                </Frame>
+                
+                
+                <HorizontalStackLayout 
+                    Spacing="10" 
+                    Margin="0,20"
+                    HorizontalOptions="Center" 
+                    VerticalOptions="End">
+                    <Button Text="Agregar" WidthRequest="130"  x:Name="btnAgregar" Margin="30,0,30,0" Background="darkgreen" TextColor="White" Clicked="OnAgregarClicked" CornerRadius="4"/>
 
-        <HorizontalStackLayout 
-            Spacing="10" 
-            Margin="0,20"
-            HorizontalOptions="Center" 
-            VerticalOptions="End">
-            <Button Text="Agregar" 
-                    WidthRequest="100" 
-                    Clicked="OnAgregarClicked"/>
-            <Button Text="Lista de Sitios" 
-                    WidthRequest="100" 
-                    Clicked="OnListaClicked"/>
-            <Button Text="Salir" 
-                    WidthRequest="100" 
-                    Clicked="OnSalirClicked"/>
-        </HorizontalStackLayout>
+                    <Button Text="Listar Sitios" WidthRequest="130"  x:Name="btnlistar"  Margin="30,0,30,0" Background="darkgreen" TextColor="White" Clicked="OnListaClicked" CornerRadius="4"/>
+
+                </HorizontalStackLayout>
+                
 
 
-    </VerticalStackLayout>
+                <Button Text="Salir" x:Name="btnSalir" Margin="30,0,30,10" Background="#B70D0D" TextColor="White" Clicked="OnSalirClicked" CornerRadius="4"/>
+
+                <Frame BackgroundColor="darkgreen" Padding="5" CornerRadius="0">
+                     <Label Text="Examen PM2 N°1" HorizontalTextAlignment="Center" TextColor="Black" FontSize="18"/>
+                 </Frame>
+
+            </StackLayout>
+        </ScrollView>
+
+    </StackLayout>
 </ContentPage>
