@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PM2E17063.Views.PageHome"
+             Title="PageHome">
+    <VerticalStackLayout>
+
+        <Image Source="{Binding Persona. Foto}" HeightRequest="200" WidthRequest="200" Margin="20,0,20,0" BackgroundColor="Azure" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="FotoImage"/>
+
+        <Label Text="Latitud" Margin="30,50,30,0" VerticalOptions="Start" HorizontalOptions="Start"/>
+        <Entry MaxLength="25" Margin="30,0,30,0" IsReadOnly="True" x:Name="Latitud" />
+
+        <Label Text="Longitud" Margin="30,20,30,0" VerticalOptions="Start" HorizontalOptions="Start"/>
+        <Entry MaxLength="25" Margin="30,0,30,0" IsReadOnly="True" x:Name="Longitud" />
+
+        <Label Text="Descripción o Notas" Margin="30,20,30,0" VerticalOptions="Start" HorizontalOptions="Start"/>
+        <Editor MaxLength="100" Margin="30,0,30,0" x:Name="Descripcion" />
+
+    </VerticalStackLayout>
+</ContentPage>
