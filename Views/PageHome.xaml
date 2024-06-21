@@ -34,7 +34,7 @@
                     <Entry x:Name="txtlongitud" Keyboard="Numeric" Text="{Binding GPSDataLon}" Placeholder="Longitud" TextColor="Black" IsReadOnly="True"/>
                 </Frame>
 
-                <Label Margin="30,0,0,0" FontSize="18" TextColor="Black">Descripción o Notas</Label>
+                <Label Margin="30,0,0,0" FontSize="18" TextColor="Black">Descripción</Label>
                 <Frame CornerRadius="4" Margin="30, 0, 30, 10" Padding="3">
                     <Editor x:Name="txtdescripcion"  Keyboard="Text" Placeholder="Descripción" HeightRequest="120" TextColor="Black"/>
                 </Frame>
@@ -49,13 +49,9 @@
 
                     <Button Text="Listar Sitios" WidthRequest="130"  x:Name="btnlistar"  Margin="30,0,30,0" Background="darkgreen" TextColor="White" Clicked="OnListaClicked" CornerRadius="4"/>
 
-                </HorizontalStackLayout>               
+                </HorizontalStackLayout>
 
                 <Button Text="Salir" x:Name="btnSalir" Margin="30,0,30,10" Background="#B70D0D" TextColor="White" Clicked="OnSalirClicked" CornerRadius="4"/>
-
-                <Frame BackgroundColor="darkgreen" Padding="5" CornerRadius="0">
-                     <Label Text="Examen PM2 N°1" HorizontalTextAlignment="Center" TextColor="Black" FontSize="18"/>
-                 </Frame>
 
             </StackLayout>
         </ScrollView>

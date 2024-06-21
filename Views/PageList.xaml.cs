@@ -4,6 +4,7 @@ using PM2E17063.Controllers;
 
 namespace PM2E17063.Views
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageList : ContentPage
     {
 
@@ -12,15 +13,11 @@ namespace PM2E17063.Views
         public PageList()
         {
             InitializeComponent();
-
         }
-
- 
 
         private void liestasistios_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             sitio = (Sitios)e.Item;
-
         }
 
         protected async override void OnAppearing()
@@ -73,8 +70,6 @@ namespace PM2E17063.Views
             {
                 await DisplayAlert("Advertencia", "Favor seleccione que sitio desea eliminar", "Aceptar");
             }
-
-
 
         }
     }

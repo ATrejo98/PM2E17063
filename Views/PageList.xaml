@@ -21,18 +21,34 @@
                         <DataTemplate>
 
                             <ViewCell >
-                                <Grid>
-                                    <Image Source="{Binding imagen, Converter={StaticResource ByteArrayToImageConverter}}" 
-                                       Grid.Column="0" WidthRequest="100"  HorizontalOptions="Center" 
-                                       Margin="10,0,100,0" HeightRequest="100"
+                                <Grid Padding="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Grid.RowSpan="2" Source="{Binding imagen, Converter={StaticResource ByteArrayToImageConverter}}" 
+                                       Aspect="AspectFill" WidthRequest="60"  
+                                       HeightRequest="60" Margin="15,0,0,0"
                                        />
 
-                                    <StackLayout Orientation="Vertical" Margin="10,0,0,0">
-                                        <Label Text="{Binding descripcion}" FontSize="15" />
-                                        <Label Text="{Binding latitud}" FontSize="10" TextColor="Gray" />
-                                        <Label Text="{Binding longitud}" FontSize="10" TextColor="Gray" />
-                                    </StackLayout>
-
+                                    <Label Grid.Column="1" Text="{Binding descripcion}" FontAttributes="Bold" Margin="15,0,0,0" />
+                                    
+                                    <Label Grid.Row="1" Grid.Column="1"
+                                        FontAttributes="Italic"
+                                        VerticalOptions="Center" Margin="15,0,0,0">
+                                        <Label.Text>
+                                            <MultiBinding StringFormat="Lat: {0}, Lon: {1}">
+                                                <Binding Path="latitud" />
+                                                <Binding Path="longitud" />
+                                            </MultiBinding>
+                                        </Label.Text>
+                                    </Label>
+                                    
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>
@@ -50,6 +66,6 @@
 
         </StackLayout>
     </ContentPage.Content>
-    
-    
+
+
 </ContentPage>

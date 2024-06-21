@@ -102,10 +102,15 @@ namespace PM2E17063.Views
 
         }
 
-        private void OnSalirClicked(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
 
+        private async void OnSalirClicked(object sender, EventArgs e)
+        {
+            bool confirm = await Application.Current.MainPage.DisplayAlert("Confirmación", "¿Desea cerrar la App?", "Sí", "Cancelar");
+
+            if (confirm)
+            {
+                System.Diagnostics.Process.GetCurrentProcess().Kill();
+            }
         }
     }
 }
