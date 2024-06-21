@@ -149,7 +149,6 @@ namespace PM2E17063.Views
 
         private void OnSalirClicked(object sender, EventArgs e)
         {
-            // Proceso para salir
             System.Diagnostics.Process.GetCurrentProcess().Kill();
 
         }
