@@ -11,14 +11,23 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <VerticalStackLayout Padding="0">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
-        <CollectionView x:Name="sitiosCollectionView">
+        <CollectionView Grid.Row="0" x:Name="sitiosCollectionView" 
+                        ItemsSource="{Binding SitiosCollection}"
+                        SelectionMode="None">
+
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <StackLayout Orientation="Horizontal" Margin="15,25,15,10">
-                        
-                        <Image Source="{Binding imagen, Converter={StaticResource ByteArrayToImageConverter}}" 
+                    <StackLayout Orientation="Horizontal" Margin="10,25,10,10">
+
+                        <CheckBox IsChecked="{Binding IsSelected}" VerticalOptions="Center"/>
+
+                        <Image Source="{Binding imagen, Converter={StaticResource ByteArrayToImageConverter}}"
                                WidthRequest="50" HeightRequest="50" />
 
                         <StackLayout Orientation="Vertical" Margin="10,0,0,0">
@@ -30,5 +39,18 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-    </VerticalStackLayout>
+
+        <HorizontalStackLayout Grid.Row="1" Margin="25, 0, 0, 30" HorizontalOptions="Center"> <!--Izquierda, arriba, derecha, Abajo-->
+            <Button Text="Eliminar"
+                    HorizontalOptions="FillAndExpand"
+                    Command="{Binding DeleteSelectedCommand}"
+                    IsEnabled="{Binding Path=DeleteSelectedCommand.CanExecute, Source={x:Reference sitiosCollectionView}}"
+                    Margin="0, 0, 30, 0" />
+            
+            <Button Text="Compartir Imagen"
+                    HorizontalOptions="FillAndExpand"
+                    Command="{Binding ShareImageSelectedCommand}"
+                    IsEnabled="{Binding Path=ShareImageSelectedCommand.CanExecute, Source={x:Reference sitiosCollectionView}}" />
+        </HorizontalStackLayout>
+    </Grid>
 </ContentPage>
