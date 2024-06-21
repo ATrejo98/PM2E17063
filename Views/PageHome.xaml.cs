@@ -94,8 +94,6 @@ namespace PM2E17063.Views
         }
 
 
-
-
         private async void OnAgregarClicked(object sender, EventArgs e)
         {
             if (imageToSave == null)

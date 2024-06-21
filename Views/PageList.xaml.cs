@@ -24,7 +24,6 @@ namespace PM2E17063.Views
         {
             try
             {
-                
                 var sitiosList = await _dbSitios.ObtenerlistadoSitio();
 
                 SitiosCollection = new ObservableCollection<Sitios>(sitiosList);

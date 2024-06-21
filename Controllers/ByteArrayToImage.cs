@@ -1,28 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Graphics;
 
 namespace PM2E17063.Converters
 {
-
     public class ByteArrayToImage : IValueConverter
     {
-        public object Convert(object value,Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            ImageSource retSource = null; 
-            if (value != null)
+            if (value is byte[] byteArray)
             {
-                byte[] imageAsBytes = (byte[])value;
-                retSource = ImageSource.FromStream(() => new MemoryStream(imageAsBytes));
+                try
+                {
+                    return ImageSource.FromStream(() => new MemoryStream(byteArray));
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error al convertir byte[] a ImageSource: " + ex.Message);
+                }
             }
-            return retSource;
+            return null;
         }
 
-        public object ConvertBack(object value,
-               Type targetType,
-               object parameter,
-               System.Globalization.CultureInfo culture)
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             throw new NotImplementedException();
         }

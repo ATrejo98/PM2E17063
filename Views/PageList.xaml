@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:PM2E17063.Converters;assembly=PM2E17063"
              x:Class="PM2E17063.Views.PageList"
              Title="Lista de Sitios">
 
-    <VerticalStackLayout Padding="10">
-        <Label 
-            Text="Lista de Sitios"
-            FontSize="18"
-            VerticalOptions="Center"
-            HorizontalOptions="Center" />
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ByteArrayToImage x:Key="ByteArrayToImageConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <VerticalStackLayout Padding="0">
 
         <CollectionView x:Name="sitiosCollectionView">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <StackLayout Orientation="Vertical" Margin="15,25,15,10">
-                        <Label Text="{Binding descripcion}" FontSize="15" />
-                        <Label Text="{Binding latitud}" FontSize="10" TextColor="Gray" />
-                        <Label Text="{Binding longitud}" FontSize="10" TextColor="Gray" />
+                    <StackLayout Orientation="Horizontal" Margin="15,25,15,10">
+                        
+                        <Image Source="{Binding imagen, Converter={StaticResource ByteArrayToImageConverter}}" 
+                               WidthRequest="50" HeightRequest="50" />
+
+                        <StackLayout Orientation="Vertical" Margin="10,0,0,0">
+                            <Label Text="{Binding descripcion}" FontSize="15" />
+                            <Label Text="{Binding latitud}" FontSize="10" TextColor="Gray" />
+                            <Label Text="{Binding longitud}" FontSize="10" TextColor="Gray" />
+                        </StackLayout>
                     </StackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
