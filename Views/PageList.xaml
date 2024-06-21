@@ -11,46 +11,45 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
 
-        <CollectionView Grid.Row="0" x:Name="sitiosCollectionView" 
-                        ItemsSource="{Binding SitiosCollection}"
-                        SelectionMode="None">
+    <ContentPage.Content>
+        <StackLayout Background="#f2f2f2">
+            <ScrollView>
+                <ListView x:Name="listasitios" ItemTapped="liestasistios_ItemTapped" RowHeight="80">
 
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout Orientation="Horizontal" Margin="10,25,10,10">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
 
-                        <CheckBox IsChecked="{Binding IsSelected}" VerticalOptions="Center"/>
+                            <ViewCell >
+                                <Grid>
+                                    <Image Source="{Binding imagen, Converter={StaticResource ByteArrayToImageConverter}}" 
+                                       Grid.Column="0" WidthRequest="100"  HorizontalOptions="Center" 
+                                       Margin="10,0,100,0" HeightRequest="100"
+                                       />
 
-                        <Image Source="{Binding imagen, Converter={StaticResource ByteArrayToImageConverter}}"
-                               WidthRequest="50" HeightRequest="50" />
+                                    <StackLayout Orientation="Vertical" Margin="10,0,0,0">
+                                        <Label Text="{Binding descripcion}" FontSize="15" />
+                                        <Label Text="{Binding latitud}" FontSize="10" TextColor="Gray" />
+                                        <Label Text="{Binding longitud}" FontSize="10" TextColor="Gray" />
+                                    </StackLayout>
 
-                        <StackLayout Orientation="Vertical" Margin="10,0,0,0">
-                            <Label Text="{Binding descripcion}" FontSize="15" />
-                            <Label Text="{Binding latitud}" FontSize="10" TextColor="Gray" />
-                            <Label Text="{Binding longitud}" FontSize="10" TextColor="Gray" />
-                        </StackLayout>
-                    </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
 
-        <HorizontalStackLayout Grid.Row="1" Margin="25, 0, 0, 30" HorizontalOptions="Center"> <!--Izquierda, arriba, derecha, Abajo-->
-            <Button Text="Eliminar"
-                    HorizontalOptions="FillAndExpand"
-                    Command="{Binding DeleteSelectedCommand}"
-                    IsEnabled="{Binding Path=DeleteSelectedCommand.CanExecute, Source={x:Reference sitiosCollectionView}}"
-                    Margin="0, 0, 30, 0" />
-            
-            <Button Text="Compartir Imagen"
-                    HorizontalOptions="FillAndExpand"
-                    Command="{Binding ShareImageSelectedCommand}"
-                    IsEnabled="{Binding Path=ShareImageSelectedCommand.CanExecute, Source={x:Reference sitiosCollectionView}}" />
-        </HorizontalStackLayout>
-    </Grid>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+
+            <HorizontalStackLayout Spacing="10" Margin="0,20" HorizontalOptions="Center" VerticalOptions="End">
+                <Button Text="Eliminar sitio" WidthRequest="130" x:Name="btneliminarsitio"  Margin="30,0,30,0" Background="Crimson" TextColor="White"  Clicked="btneliminarsitio_Clicked" CornerRadius="4"/>
+                <Button Text="Ver Mapa" x:Name="btnvermapa" Margin="30,0,30,0" Background="Darkgreen" TextColor="White" Clicked="btnvermapa_Clicked" CornerRadius="4"/>
+
+            </HorizontalStackLayout>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+    
+    
 </ContentPage>

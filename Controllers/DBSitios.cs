@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using SQLite;
+﻿using SQLite;
 using PM2E17063.Models;
-using System.Threading.Tasks;
 
 namespace PM2E17063.Controllers
 {

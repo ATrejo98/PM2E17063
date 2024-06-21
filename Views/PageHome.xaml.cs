@@ -1,65 +1,21 @@
+using PM2E17063.Models;
+using Microsoft.Maui.Controls;
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
-using PM2E17063.Views;
-using PM2E17063.Models;
-using PM2E17063.Controllers;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Devices.Sensors;
+using static Microsoft.Maui.ApplicationModel.Permissions;
 
 namespace PM2E17063.Views
 {
     public partial class PageHome : ContentPage
     {
 
-        FileResult photo;
         public PageHome()
         {
-            InitializeComponent();
-            obtenerLatitudLongitud();
-        }
-
-        //Obtener GPS
-        public async void obtenerLatitudLongitud()
-        {
-            try
-            {
-                var georequest = new GeolocationRequest(GeolocationAccuracy.Best, TimeSpan.FromSeconds(10));
-
-                var tokendecancelacion = new System.Threading.CancellationTokenSource();
-
-                var localizacion = await Geolocation.GetLocationAsync(georequest, tokendecancelacion.Token);
-
-
-                if (localizacion != null)
-                {
-                    txtlatitud.Text = localizacion.Latitude.ToString();
-                    txtlongitud.Text = localizacion.Longitude.ToString();
-                }
-            }
-            catch (FeatureNotSupportedException fnsEx)
-            {
-                await DisplayAlert("Advertencia", "Este dispositivo no soporta GPS" + fnsEx, "Ok");
-            }
-            catch (FeatureNotEnabledException)
-            {
-                await DisplayAlert("Advertencia", "Su GPS se encuentra desactivado, favor volver a ingresar con el GPS activado", "Ok");
-                System.Diagnostics.Process.GetCurrentProcess().Kill();
-
-            }
-            catch (PermissionException pEx)
-            {
-                await DisplayAlert("Advertencia", "Sin Permisos de Geolocalizacion" + pEx, "Ok");
-            }
-            catch (Exception ex)
-            {
-                await DisplayAlert("Advertencia", "Sin Ubicacion " + ex, "Ok");
-            }
+            InitializeComponent();       
         }
 
 
@@ -95,7 +51,6 @@ namespace PM2E17063.Views
                         img.Source = ImageSource.FromStream(() => new MemoryStream(imageToSave));
                     }
 
-                    obtenerLatitudLongitud();
                     txtdescripcion.Focus();
                 }
             }

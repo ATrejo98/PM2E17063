@@ -1,9 +1,4 @@
-﻿using System;
-using System.IO;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Graphics;
-
-namespace PM2E17063.Converters
+﻿namespace PM2E17063.Converters
 {
     public class ByteArrayToImage : IValueConverter
     {
