@@ -42,9 +42,7 @@
 
                     <Button Text="Listar Sitios" WidthRequest="130"  x:Name="btnlistar"  Margin="30,0,30,0" Background="darkgreen" TextColor="White" Clicked="OnListaClicked" CornerRadius="4"/>
 
-                </HorizontalStackLayout>
-                
-
+                </HorizontalStackLayout>               
 
                 <Button Text="Salir" x:Name="btnSalir" Margin="30,0,30,10" Background="#B70D0D" TextColor="White" Clicked="OnSalirClicked" CornerRadius="4"/>
 

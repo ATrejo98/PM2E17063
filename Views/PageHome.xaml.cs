@@ -1,5 +1,16 @@
-using PM2E17063.Models;
 
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+using PM2E17063.Views;
+using PM2E17063.Models;
+using PM2E17063.Controllers;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Devices.Sensors;
 
 namespace PM2E17063.Views
 {
@@ -12,6 +23,7 @@ namespace PM2E17063.Views
             InitializeComponent();
             obtenerLatitudLongitud();
         }
+
         //Obtener GPS
         public async void obtenerLatitudLongitud()
         {
