@@ -72,5 +72,25 @@ namespace PM2E17063.Views
             }
 
         }
+
+
+        private async void btnOnShareImage_Clicked(object sender, EventArgs e)
+        {
+            List<ShareFile> shareFiles = new List<ShareFile>();
+
+            // Recorrer los elementos seleccionados y guardar cada imagen en almacenamiento temporal
+            var tempImagePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"{sitio.id}_sharedimage.png");
+            File.WriteAllBytes(tempImagePath, sitio.imagen);
+            shareFiles.Add(new ShareFile(tempImagePath));
+            
+
+            // Compartir las imágenes usando .NET MAUI
+            await Share.RequestAsync(new ShareMultipleFilesRequest
+            {
+                Title = "Compartir imágen",
+                Files = shareFiles
+            });
+        }
+
     }
 }

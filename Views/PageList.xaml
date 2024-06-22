@@ -63,6 +63,8 @@
 
             </HorizontalStackLayout>
 
+            <Button Text="Compartir Imagen" x:Name="btncompartirimagen" Margin="30,0,30,0" Background="Darkgreen" TextColor="White" Clicked="btnOnShareImage_Clicked" CornerRadius="4"/>
+
 
         </StackLayout>
     </ContentPage.Content>
