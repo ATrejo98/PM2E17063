@@ -4,7 +4,7 @@
              x:Class="PM2E17063.Views.PageHome"
              xmlns:model="clr-namespace:PM2E17063.Models"
              Title="Examen PM2 Primer Parcial"
-             Background="DarkGreen">
+             BackgroundColor="DarkGreen">
 
     <ContentPage.BindingContext>
         <model:GPSViewModel/>
